@@ -1,1 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ameer Hamxa Quran Academy — Tarnol, Islamabad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --deep-green:#0B4A3A;
+    --mid-green:#146356;
+    --night-green:#082E24;
+    --gold:#C9A24B;
+    --gold-light:#E7CE8C;
+    --cream:#FBF6EA;
+    --paper:#F3ECDA;
+    --ink:#1C2B25;
+    --ink-soft:#4B5D54;
+    --soft-white:#FAF6EA;
+    --shadow: 0 20px 50px rgba(8,46,36,0.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Jost',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4,.display{
+    font-family:'Amiri',serif;
+    font-weight:700;
+    letter-spacing:0.3px;
+  }
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  img{max-width:100%;display:block;}
+  .container{max-width:1180px;margin:0 auto;padding:0 28px;}
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Jost',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:12.5px;
+    color:var(--gold);
+    font-weight:600;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold);}
 
+  /* ---------- Star / geometric signature ---------- */
+  .star8{
+    width:14px;height:14px;
+    display:inline-block;
+    background: var(--gold);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+  .star-divider{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+    margin:0 auto;
+  }
+  .star-divider .line{width:70px;height:1px;background:linear-gradient(90deg, transparent, var(--gold), transparent);}
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;
+    z-index:100;
+    background:rgba(8,46,36,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(201,162,75,0.25);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 28px;
+    max-width:1180px;margin:0 auto;
+  }
+  .logo{
+    display:flex;align-items:center;gap:12px;
+    color:var(--soft-white);
+  }
+  .logo .mark{
+    width:42px;height:42px;
+    border:1.5px solid var(--gold);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+    flex-shrink:0;
+  }
+  .logo .mark .star8{width:18px;height:18px;}
+  .logo-text{line-height:1.15;}
+  .logo-text .name{font-family:'Amiri',serif;font-size:19px;color:var(--soft-white);font-weight:700;}
+  .logo-text .sub{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);}
+  nav ul{display:flex;gap:34px;}
+  nav ul a{
+    color:var(--soft-white);
+    font-size:14.5px;
+    font-weight:400;
+    position:relative;
+    padding-bottom:4px;
+    transition:color .25s;
+  }
+  nav ul a:hover{color:var(--gold-light);}
+  .nav-cta{
+    background:var(--gold);
+    color:var(--night-green);
+    padding:10px 22px;
+    border-radius:2px;
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:0.4px;
+    transition:transform .25s, background .25s;
+  }
+  .nav-cta:hover{background:var(--gold-light); transform:translateY(-1px);}
+  .menu-toggle{display:none;background:none;border:none;color:var(--soft-white);font-size:26px;cursor:pointer;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(201,162,75,0.10), transparent 55%),
+      linear-gradient(180deg, var(--night-green) 0%, var(--deep-green) 55%, var(--mid-green) 100%);
+    overflow:hidden;
+    padding-top:90px;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;inset:0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(201,162,75,0.045) 0, rgba(201,162,75,0.045) 1px, transparent 1px, transparent 32px),
+      repeating-linear-gradient(-45deg, rgba(201,162,75,0.045) 0, rgba(201,162,75,0.045) 1px, transparent 1px, transparent 32px);
+    pointer-events:none;
+  }
+  .hero-arch{
+    position:absolute;
+    right:-6%;
+    bottom:0;
+    height:100%;
+    width:52%;
+    opacity:0.9;
+    pointer-events:none;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:40px;
+    align-items:center;
+    position:relative;
+    z-index:2;
+    width:100%;
+  }
+  .hero-content .eyebrow{color:var(--gold-light);}
+  .hero h1{
+    font-size:clamp(38px,5.4vw,66px);
+    color:var(--soft-white);
+    line-height:1.12;
+    margin-bottom:22px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--gold-light);
+  }
+  .hero p.lead{
+    color:rgba(250,246,234,0.82);
+    font-size:17.5px;
+    max-width:520px;
+    margin-bottom:34px;
+    font-weight:300;
+  }
+  .hero-btns{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:15px 30px;
+    border-radius:2px;
+    font-size:14.5px;
+    font-weight:600;
+    letter-spacing:0.4px;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:all .25s;
+  }
+  .btn-gold{background:var(--gold); color:var(--night-green);}
+  .btn-gold:hover{background:var(--gold-light); transform:translateY(-2px); box-shadow:0 12px 24px rgba(201,162,75,0.25);}
+  .btn-outline{border-color:rgba(250,246,234,0.4); color:var(--soft-white);}
+  .btn-outline:hover{border-color:var(--gold-light); color:var(--gold-light);}
+
+  .ayah-card{
+    background:rgba(250,246,234,0.06);
+    border:1px solid rgba(201,162,75,0.3);
+    border-radius:4px;
+    padding:34px 30px;
+    position:relative;
+    z-index:2;
+  }
+  .ayah-card .arabic{
+    font-family:'Amiri',serif;
+    font-size:26px;
+    color:var(--gold-light);
+    text-align:right;
+    direction:rtl;
+    line-height:1.9;
+    margin-bottom:16px;
+  }
+  .ayah-card .translation{
+    color:rgba(250,246,234,0.75);
+    font-size:14px;
+    font-style:italic;
+    border-top:1px solid rgba(201,162,75,0.25);
+    padding-top:14px;
+  }
+  .ayah-card .ref{
+    display:block;
+    margin-top:10px;
+    color:var(--gold);
+    font-size:12.5px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+  }
+
+  .stats-strip{
+    background:var(--night-green);
+    border-top:1px solid rgba(201,162,75,0.2);
+    padding:26px 0;
+  }
+  .stats-strip .container{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:20px;
+  }
+  .stat{text-align:center; flex:1; min-width:140px;}
+  .stat .num{font-family:'Amiri',serif; font-size:30px; color:var(--gold-light); font-weight:700;}
+  .stat .label{font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(250,246,234,0.65); margin-top:4px;}
+
+  /* ---------- Section basics ---------- */
+  section{padding:100px 0;}
+  .section-head{max-width:640px; margin:0 auto 60px; text-align:center;}
+  .section-head h2{font-size:clamp(30px,4vw,44px); color:var(--deep-green); margin-bottom:16px;}
+  .section-head p{color:var(--ink-soft); font-size:16px;}
+  .bg-paper{background:var(--paper);}
+
+  /* ---------- About ---------- */
+  .about-wrap{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:64px;
+    align-items:center;
+  }
+  .about-frame{
+    position:relative;
+    aspect-ratio:4/5;
+    border-radius:4px;
+    background:linear-gradient(160deg, var(--deep-green), var(--mid-green));
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+  .about-frame::before{
+    content:"";
+    position:absolute;inset:14px;
+    border:1px solid rgba(201,162,75,0.55);
+    border-radius:2px;
+  }
+  .about-frame .glyph{
+    font-family:'Amiri',serif;
+    font-size:120px;
+    color:rgba(231,206,140,0.28);
+  }
+  .about-copy h3{color:var(--deep-green); font-size:28px; margin-bottom:18px;}
+  .about-copy p{color:var(--ink-soft); margin-bottom:16px; font-size:15.5px;}
+  .about-points{margin-top:26px; display:grid; gap:14px;}
+  .about-points li{display:flex; gap:12px; align-items:flex-start; font-size:15px; color:var(--ink);}
+  .about-points .star8{margin-top:6px; flex-shrink:0;}
+
+  /* ---------- Courses ---------- */
+  .course-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+  .course-card{
+    background:var(--cream);
+    border:1px solid rgba(11,74,58,0.12);
+    border-radius:4px;
+    padding:32px 28px;
+    position:relative;
+    transition:transform .3s, box-shadow .3s, border-color .3s;
+  }
+  .course-card:hover{
+    transform:translateY(-6px);
+    box-shadow:var(--shadow);
+    border-color:var(--gold);
+  }
+  .course-card .num{
+    font-family:'Amiri',serif;
+    font-size:15px;
+    color:var(--gold);
+    letter-spacing:2px;
+    margin-bottom:16px;
+    display:block;
+  }
+  .course-card h3{font-size:21px; color:var(--deep-green); margin-bottom:10px;}
+  .course-card p{color:var(--ink-soft); font-size:14.5px;}
+
+  /* ---------- Teachers ---------- */
+  .teacher-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:32px;
+    max-width:820px;
+    margin:0 auto;
+  }
+  .teacher-card{
+    background:linear-gradient(160deg, var(--deep-green), var(--night-green));
+    border-radius:4px;
+    padding:38px 32px;
+    text-align:center;
+    color:var(--soft-white);
+    position:relative;
+  }
+  .teacher-avatar{
+    width:88px;height:88px;
+    border-radius:50%;
+    border:1.5px solid var(--gold);
+    margin:0 auto 20px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Amiri',serif;
+    font-size:30px;
+    color:var(--gold-light);
+    background:rgba(201,162,75,0.08);
+  }
+  .teacher-card h3{font-size:20px; margin-bottom:6px; color:var(--soft-white);}
+  .teacher-card .qual{color:var(--gold-light); font-size:13px; letter-spacing:0.5px; margin-bottom:14px;}
+  .teacher-card p.bio{color:rgba(250,246,234,0.72); font-size:14px;}
+
+  /* ---------- Fees ---------- */
+  .fees-table{
+    max-width:900px;
+    margin:0 auto;
+    border-collapse:collapse;
+    width:100%;
+    background:var(--cream);
+    box-shadow:var(--shadow);
+  }
+  .fees-table thead th{
+    background:var(--deep-green);
+    color:var(--soft-white);
+    text-align:left;
+    padding:18px 24px;
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+  }
+  .fees-table tbody td{
+    padding:18px 24px;
+    border-bottom:1px solid rgba(11,74,58,0.1);
+    font-size:15px;
+    color:var(--ink);
+  }
+  .fees-table tbody tr:last-child td{border-bottom:none;}
+  .fees-table tbody tr:hover{background:rgba(201,162,75,0.06);}
+  .fees-table .price{color:var(--deep-green); font-weight:600; font-family:'Amiri',serif; font-size:17px;}
+  .fees-note{text-align:center; margin-top:22px; color:var(--ink-soft); font-size:14px;}
+
+  /* ---------- Testimonials ---------- */
+  .testi-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+  .testi-card{
+    background:var(--paper);
+    border-radius:4px;
+    padding:30px 26px;
+    position:relative;
+  }
+  .testi-card .quote-mark{font-family:'Amiri',serif; font-size:46px; color:var(--gold); line-height:1; margin-bottom:6px;}
+  .testi-card p{color:var(--ink); font-size:14.5px; margin-bottom:20px;}
+  .testi-who{display:flex; align-items:center; gap:12px;}
+  .testi-who .dot{width:38px;height:38px;border-radius:50%;background:var(--deep-green);color:var(--gold-light);display:flex;align-items:center;justify-content:center;font-family:'Amiri',serif;font-size:15px;}
+  .testi-who .name{font-size:14px; font-weight:600; color:var(--deep-green);}
+  .testi-who .rel{font-size:12px; color:var(--ink-soft);}
+
+  /* ---------- Enrollment / Contact ---------- */
+  .enroll-section{
+    background:linear-gradient(180deg, var(--night-green), var(--deep-green));
+    position:relative;
+    overflow:hidden;
+  }
+  .enroll-section::before{
+    content:"";
+    position:absolute;inset:0;
+    background-image:repeating-linear-gradient(45deg, rgba(201,162,75,0.04) 0, rgba(201,162,75,0.04) 1px, transparent 1px, transparent 30px);
+  }
+  .enroll-wrap{
+    display:grid;
+    grid-template-columns:1fr 1.15fr;
+    gap:56px;
+    position:relative;
+    z-index:2;
+  }
+  .enroll-info .eyebrow{color:var(--gold-light);}
+  .enroll-info h2{color:var(--soft-white); font-size:36px; margin-bottom:18px;}
+  .enroll-info p{color:rgba(250,246,234,0.75); margin-bottom:28px; font-size:15.5px;}
+  .contact-list{display:grid; gap:18px;}
+  .contact-list li{display:flex; gap:14px; align-items:flex-start;}
+  .contact-list .ic{
+    width:40px;height:40px;flex-shrink:0;
+    border:1px solid var(--gold);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--gold-light);
+    font-size:16px;
+  }
+  .contact-list .txt strong{display:block; color:var(--soft-white); font-size:14.5px; margin-bottom:2px;}
+  .contact-list .txt span, .contact-list .txt a{color:rgba(250,246,234,0.75); font-size:14px;}
+
+  .enroll-form{
+    background:var(--cream);
+    border-radius:6px;
+    padding:40px;
+    box-shadow:var(--shadow);
+  }
+  .enroll-form h3{color:var(--deep-green); font-size:22px; margin-bottom:6px;}
+  .enroll-form .sub{color:var(--ink-soft); font-size:14px; margin-bottom:26px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
+  .form-field{margin-bottom:16px;}
+  .form-field label{display:block; font-size:13px; color:var(--ink); margin-bottom:6px; font-weight:500;}
+  .form-field input, .form-field select, .form-field textarea{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid rgba(11,74,58,0.2);
+    border-radius:3px;
+    font-family:'Jost',sans-serif;
+    font-size:14px;
+    background:var(--soft-white);
+    color:var(--ink);
+    transition:border-color .2s;
+  }
+  .form-field input:focus, .form-field select:focus, .form-field textarea:focus{
+    outline:none;
+    border-color:var(--gold);
+  }
+  .enroll-form button{
+    width:100%;
+    background:var(--deep-green);
+    color:var(--soft-white);
+    border:none;
+    padding:15px;
+    border-radius:3px;
+    font-size:15px;
+    font-weight:600;
+    letter-spacing:0.4px;
+    cursor:pointer;
+    transition:background .25s;
+  }
+  .enroll-form button:hover{background:var(--night-green);}
+  .form-success{
+    display:none;
+    background:rgba(11,74,58,0.08);
+    border:1px solid var(--deep-green);
+    color:var(--deep-green);
+    padding:14px 16px;
+    border-radius:3px;
+    font-size:14px;
+    margin-top:16px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--night-green);
+    padding:56px 0 26px;
+    color:rgba(250,246,234,0.7);
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr;
+    gap:40px;
+    padding-bottom:36px;
+    border-bottom:1px solid rgba(201,162,75,0.2);
+  }
+  .footer-brand .logo-text .name{color:var(--soft-white);}
+  .footer-brand p{margin-top:14px; font-size:14px; max-width:280px; color:rgba(250,246,234,0.6);}
+  footer h4{color:var(--gold-light); font-size:14px; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:18px;}
+  footer ul li{margin-bottom:10px; font-size:14px;}
+  footer ul li a:hover{color:var(--gold-light);}
+  .footer-bottom{
+    display:flex;justify-content:space-between; align-items:center;
+    padding-top:24px; font-size:13px; flex-wrap:wrap; gap:10px;
+    color:rgba(250,246,234,0.5);
+  }
+
+  /* ---------- WhatsApp float ---------- */
+  .wa-float{
+    position:fixed;
+    bottom:26px; right:26px;
+    z-index:200;
+    width:58px;height:58px;
+    border-radius:50%;
+    background:#25D366;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 24px rgba(0,0,0,0.25);
+    transition:transform .25s;
+  }
+  .wa-float:hover{transform:scale(1.08);}
+  .wa-float svg{width:28px;height:28px;}
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:900px){
+    nav ul{display:none;}
+    .menu-toggle{display:block;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-arch{display:none;}
+    .about-wrap{grid-template-columns:1fr;}
+    .course-grid{grid-template-columns:1fr 1fr;}
+    .teacher-grid{grid-template-columns:1fr;}
+    .testi-grid{grid-template-columns:1fr;}
+    .enroll-wrap{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    .form-row{grid-template-columns:1fr;}
+  }
+  @media(max-width:560px){
+    .course-grid{grid-template-columns:1fr;}
+    .stats-strip .container{justify-content:center; text-align:center;}
+    section{padding:70px 0;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header>
+  <div class="nav">
+    <div class="logo">
+      <div class="mark"><span class="star8"></span></div>
+      <div class="logo-text">
+        <div class="name">Ameer Hamxa</div>
+        <div class="sub">Quran Academy</div>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#teachers">Teachers</a></li>
+        <li><a href="#fees">Fees</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#enroll" class="nav-cta">Enroll Now</a>
+    <button class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('mobile-open')">☰</button>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <div class="eyebrow">Tarnol, Islamabad · Online &amp; In-Person</div>
+      <h1>Learn the Quran with <em>Tajweed, Tarbiyah</em> &amp; a Trusted Teacher</h1>
+      <p class="lead">Ameer Hamxa Quran Academy teaches Noorani Qaida, Nazra, Hifz, Tajweed, Tafseer and Arabic under the guidance of qualified, experienced teachers — for children and adults, online or in our Tarnol classroom.</p>
+      <div class="hero-btns">
+        <a href="#enroll" class="btn btn-gold">Start Free Trial Class</a>
+        <a href="https://wa.me/923554486486" target="_blank" class="btn btn-outline">Chat on WhatsApp</a>
+      </div>
+    </div>
+    <div class="ayah-card">
+      <div class="arabic">خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ</div>
+      <div class="translation">"The best among you is the one who learns the Quran and teaches it."</div>
+      <span class="ref">Sahih al-Bukhari</span>
+    </div>
+  </div>
+</section>
+
+<div class="stats-strip">
+  <div class="container">
+    <div class="stat"><div class="num">2</div><div class="label">Qualified Teachers</div></div>
+    <div class="stat"><div class="num">7+</div><div class="label">Courses Offered</div></div>
+    <div class="stat"><div class="num">Online</div><div class="label">&amp; In-Person Classes</div></div>
+    <div class="stat"><div class="num">1:1</div><div class="label">Personal Attention</div></div>
+  </div>
+</div>
+
+<!-- ===== About ===== -->
+<section id="about">
+  <div class="container about-wrap">
+    <div class="about-frame"><span class="glyph">﷽</span></div>
+    <div class="about-copy">
+      <div class="eyebrow">About the Academy</div>
+      <h3>A Home for Quran Learning in Tarnol</h3>
+      <p>Ameer Hamxa Quran Academy was founded to make authentic, well-taught Quran education accessible to every home — whether a child is beginning with Noorani Qaida or an adult wants to perfect their Tajweed. Our teachers hold recognized qualifications from the KIU and Wifaq boards, and every class blends correct recitation with the manners (adaab) of the Quran.</p>
+      <p>We offer flexible online classes for students anywhere, as well as in-person classes at our Tarnol, Islamabad center — with separate, comfortable arrangements for male and female students.</p>
+      <ul class="about-points">
+        <li><span class="star8"></span> Qualified male &amp; female teachers</li>
+        <li><span class="star8"></span> One-on-one and group class options</li>
+        <li><span class="star8"></span> Flexible timing for students &amp; working adults</li>
+        <li><span class="star8"></span> Regular progress reports for parents</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Courses ===== -->
+<section id="courses" class="bg-paper">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" style="justify-content:center;">Our Courses</div>
+      <h2>Courses for Every Stage of Learning</h2>
+      <p>From the first letters of Noorani Qaida to complete memorization and deep understanding — a clear path for every student.</p>
+    </div>
+    <div class="course-grid">
+      <div class="course-card"><span class="num">01</span><h3>Noorani Qaida</h3><p>The foundational course teaching correct Arabic letter recognition and pronunciation — the essential first step for every new student.</p></div>
+      <div class="course-card"><span class="num">02</span><h3>Nazra Quran</h3><p>Learning to read the Quran fluently and correctly with proper pronunciation, at a pace suited to the student.</p></div>
+      <div class="course-card"><span class="num">03</span><h3>Hifz-ul-Quran</h3><p>Complete memorization of the Holy Quran with structured daily targets, revision cycles and one-on-one guidance.</p></div>
+      <div class="course-card"><span class="num">04</span><h3>Tajweed</h3><p>Mastering the rules of correct Quranic recitation — makhraj, madd and the science of beautiful, accurate tilawat.</p></div>
+      <div class="course-card"><span class="num">05</span><h3>Tafseer</h3><p>Understanding the meaning, context and message of the Quran under qualified scholarly guidance.</p></div>
+      <div class="course-card"><span class="num">06</span><h3>Islamic Studies</h3><p>Core beliefs, fiqh, seerah and everyday Islamic practice, taught in a simple and practical way.</p></div>
+      <div class="course-card"><span class="num">07</span><h3>Arabic Language</h3><p>Building reading, writing and comprehension skills in Arabic to connect directly with the Quran and Islamic texts.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Teachers ===== -->
+<section id="teachers">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" style="justify-content:center;">Our Teachers</div>
+      <h2>Learn Under Qualified Guidance</h2>
+      <p>Every class is led by teachers with recognized Islamic and academic qualifications.</p>
+    </div>
+    <div class="teacher-grid">
+      <div class="teacher-card">
+        <div class="teacher-avatar">حا</div>
+        <h3>Hafiz Ameer Ullah</h3>
+        <div class="qual">FSc — KIU Board</div>
+        <p class="bio">A Hafiz-e-Quran dedicated to teaching Hifz, Nazra and Tajweed with patience and a structured, student-focused approach.</p>
+      </div>
+      <div class="teacher-card">
+        <div class="teacher-avatar">مج</div>
+        <h3>Maulana M. Mujahid</h3>
+        <div class="qual">M.A Islamiat — Wifaq Board</div>
+        <p class="bio">A scholar of Islamiat specializing in Tafseer and Islamic Studies, guiding students in both recitation and understanding.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Fees ===== -->
+<section id="fees" class="bg-paper">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" style="justify-content:center;">Fees</div>
+      <h2>Simple, Transparent Pricing</h2>
+      <p>Choose the class format that works for your schedule. Contact us for combined course discounts.</p>
+    </div>
+    <table class="fees-table">
+      <thead>
+        <tr><th>Course</th><th>Format</th><th>Monthly Fee</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Noorani Qaida</td><td>Online / In-Person</td><td class="price">Contact Us</td></tr>
+        <tr><td>Nazra Quran</td><td>Online / In-Person</td><td class="price">Contact Us</td></tr>
+        <tr><td>Hifz-ul-Quran</td><td>Online / In-Person</td><td class="price">Contact Us</td></tr>
+        <tr><td>Tajweed</td><td>Online / In-Person</td><td class="price">Contact Us</td></tr>
+        <tr><td>Tafseer &amp; Islamic Studies</td><td>Online / In-Person</td><td class="price">Contact Us</td></tr>
+        <tr><td>Arabic Language</td><td>Online / In-Person</td><td class="price">Contact Us</td></tr>
+      </tbody>
+    </table>
+    <p class="fees-note">Fees vary by class type (one-on-one or group) and schedule. WhatsApp us for the current fee structure and a free trial class.</p>
+  </div>
+</section>
+
+<!-- ===== Testimonials ===== -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow" style="justify-content:center;">Testimonials</div>
+      <h2>What Our Students &amp; Parents Say</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="quote-mark">"</div>
+        <p>My son started with Noorani Qaida six months ago and is now reading Nazra with confidence. The teachers are patient and truly caring.</p>
+        <div class="testi-who"><div class="dot">A</div><div><div class="name">Asma R.</div><div class="rel">Parent, Tarnol</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="quote-mark">"</div>
+        <p>I joined the online Tajweed course as a working adult. The timing flexibility and one-on-one attention made all the difference.</p>
+        <div class="testi-who"><div class="dot">U</div><div><div class="name">Usman K.</div><div class="rel">Online Student</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="quote-mark">"</div>
+        <p>Alhamdulillah, my daughter completed her Hifz here. Hafiz Ameer Ullah sahab's revision system is excellent and very disciplined.</p>
+        <div class="testi-who"><div class="dot">S</div><div><div class="name">Saima B.</div><div class="rel">Parent, Islamabad</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Enroll / Contact ===== -->
+<section id="enroll" class="enroll-section">
+  <div class="container enroll-wrap">
+    <div class="enroll-info" id="contact">
+      <div class="eyebrow">Get In Touch</div>
+      <h2>Begin Your Quran Journey Today</h2>
+      <p>Fill the form for a free trial class, or reach us directly through phone, WhatsApp or email. We'll get back to you within a day, in sha Allah.</p>
+      <ul class="contact-list">
+        <li><div class="ic">📍</div><div class="txt"><strong>Location</strong><span>Tarnol, Islamabad, Pakistan</span></div></li>
+        <li><div class="ic">📞</div><div class="txt"><strong>Phone</strong><span>0317 5000855 · 0311 5504956</span></div></li>
+        <li><div class="ic">💬</div><div class="txt"><strong>WhatsApp</strong><span>0355 4486486 · 0334 5504956</span></div></li>
+        <li><div class="ic">✉️</div><div class="txt"><strong>Email</strong><a href="mailto:ameerhamxa020@gmail.com">ameerhamxa020@gmail.com</a></div></li>
+      </ul>
+    </div>
+
+    <div class="enroll-form">
+      <h3>Free Trial Enrollment</h3>
+      <p class="sub">Tell us a little about the student and we'll arrange a free trial class.</p>
+      <form id="enrollForm">
+        <div class="form-row">
+          <div class="form-field"><label>Student Name</label><input type="text" required placeholder="Full name"></div>
+          <div class="form-field"><label>Age</label><input type="number" required placeholder="Age"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-field"><label>Phone / WhatsApp</label><input type="tel" required placeholder="03XX XXXXXXX"></div>
+          <div class="form-field"><label>Class Format</label>
+            <select required>
+              <option value="">Select</option>
+              <option>Online</option>
+              <option>In-Person (Tarnol)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field"><label>Course</label>
+          <select required>
+            <option value="">Select a course</option>
+            <option>Noorani Qaida</option>
+            <option>Nazra Quran</option>
+            <option>Hifz-ul-Quran</option>
+            <option>Tajweed</option>
+            <option>Tafseer</option>
+            <option>Islamic Studies</option>
+            <option>Arabic Language</option>
+          </select>
+        </div>
+        <div class="form-field"><label>Message (optional)</label><textarea rows="3" placeholder="Preferred timing, questions, etc."></textarea></div>
+        <button type="submit">Request Free Trial Class</button>
+        <div class="form-success" id="formSuccess">Jazak Allah Khair! Your request has been noted — please also message us on WhatsApp so we can confirm your trial class quickly.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text"><div class="name">Ameer Hamxa Quran Academy</div><div class="sub" style="color:var(--gold-light);">Tarnol, Islamabad</div></div>
+        <p>Teaching the Quran with correct Tajweed and sincere tarbiyah — online and in-person, for all ages.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#teachers">Teachers</a></li>
+          <li><a href="#fees">Fees</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>Tarnol, Islamabad</li>
+          <li>0317 5000855</li>
+          <li>ameerhamxa020@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ameer Hamxa Quran Academy. All rights reserved.</span>
+      <span>Made with sincerity, for the sake of the Quran.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp floating button -->
+<a href="https://wa.me/923554486486" target="_blank" class="wa-float" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" fill="white"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.61 1.902 6.484L4 29l7.72-1.867A11.94 11.94 0 0 0 16.001 27C22.628 27 28 21.627 28 15S22.628 3 16.001 3zm0 21.75a9.7 9.7 0 0 1-4.95-1.354l-.355-.21-4.585 1.108 1.127-4.47-.232-.366A9.7 9.7 0 0 1 6.25 15c0-5.376 4.375-9.75 9.751-9.75S25.75 9.624 25.75 15 21.377 24.75 16.001 24.75zm5.34-7.29c-.293-.147-1.732-.855-2-.953-.269-.098-.464-.147-.66.147-.195.293-.756.953-.927 1.148-.171.196-.342.22-.635.073-.293-.147-1.236-.456-2.355-1.453-.87-.776-1.458-1.735-1.629-2.028-.171-.293-.018-.452.129-.598.132-.132.293-.342.44-.513.147-.171.196-.293.293-.489.098-.196.049-.366-.024-.513-.073-.147-.66-1.594-.904-2.183-.238-.573-.48-.495-.66-.504l-.562-.01c-.196 0-.513.073-.782.366s-1.03 1.006-1.03 2.453 1.055 2.845 1.202 3.041c.147.196 2.077 3.172 5.032 4.448.703.303 1.251.484 1.679.62.706.224 1.348.192 1.856.117.566-.085 1.732-.708 1.977-1.392.244-.684.244-1.27.171-1.392-.073-.122-.269-.196-.562-.342z"/></svg>
+</a>
+
+<script>
+  document.getElementById('enrollForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('formSuccess').style.display = 'block';
+    this.reset();
+  });
+</script>
+
+</body>
+</html>
